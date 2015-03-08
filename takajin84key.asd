@@ -16,7 +16,7 @@
   :version "0.1"
   :author "Satoshi Iwasaki"
   :license "LLGPL"
-  :depends-on (:alexandria)
+  :depends-on (:alexandria :cl-pass)
   :components ((:module "src"
                 :components
                 ((:file "takajin84key"))))
