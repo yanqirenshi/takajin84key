@@ -6,7 +6,8 @@
            #:password
            #:make-password
            #:validation
-           #:change-password))
+           #:change-password
+           #:gen-spell))
 
 (in-package :takajin84key)
 
@@ -67,7 +68,13 @@
 (defvar *password-characters* "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=!@#$%^&*()_+|[]{};:,./<>?")
 (defun password-charp (string &key (charcters *password-characters*))
   (search string charcters))
-
+(defun gen-spell (&key (length 8) (use-chars *password-characters*))
+  (let ((out ""))
+    (dotimes (i length)
+      (let ((col (random (length use-chars))))
+        (setf out
+              (concatenate 'string out (subseq use-chars col (+ 1 col))))))
+    out))
 
 
 ;;;;;
