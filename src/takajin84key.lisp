@@ -43,7 +43,7 @@
 ;;;;;
 (defvar *default-roule*
   #'(lambda (spell &optional password)
-      (let ((min 3) (max 10)) ;; ここはベタ書き。 min,max は Class:password ではサポートしていない。
+      (let ((min 3) (max 20)) ;; ここはベタ書き。 min,max は Class:password ではサポートしていない。
         (cond ((null spell) (error "Password が空でちゅよ〜"))
               ((not (stringp spell)) (error "Password が文字列じゃないでちゅよ〜 spell=~a" spell))
               ((< (length spell) min) (error "~a文字以下はダメでちゅよ〜 spell=~a" min spell))
